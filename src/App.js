@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
+import Home from './components/Home'
 import Particles from 'react-particles-js';
+
 
 const particleParams = {
   "particles": {
@@ -113,12 +115,25 @@ const particleParams = {
   "retina_detect": true
 }
 
+const bgStyles = {
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  color: "white",
+  textAlign: 'center'
+}
+
 class App extends Component{
   render(){
     return (
       <div>
-        <Particles params={particleParams} />
+      <Particles params={particleParams} />
+      <div style={bgStyles} >
+        {<Home></Home>}
       </div>
+    </div>
     );
   }
 }
