@@ -21,7 +21,15 @@ input[type=text] {
 
 .user-profile {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 52%;
   margin: -100px 0 0 -150px;
+}
+
+.styles__card___2P_1t {
+  min-height: 400px !important;
+}
+
+.styles__user-card-stats___2q1wZ {
+  margin: inherit !important;
 }

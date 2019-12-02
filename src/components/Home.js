@@ -40,7 +40,9 @@ class Home extends Component{
       subscriptionsUrl: "",
       type: "",
       updatedAt: "",
-      url: ""
+      url: "",
+      avatarUrl: "",
+      publicRepos: ""
     };
   }
 
@@ -77,13 +79,16 @@ class Home extends Component{
         type:               userInfo.type,
         updatedAt:          userInfo.updated_at,
         url:                userInfo.url,
+        avatarUrl:          userInfo.avatar_url
       });
     });
   }
 
   render(){
+    debugger
     return (
       <div className='search-box'>
+        <h3>Enter your GitHub username</h3>
         <MuiThemeProvider>
           <SearchBar
             onChange={(value) => this.setState({userInput: value})}
@@ -102,22 +107,22 @@ class Home extends Component{
         <div className='user-profile'>
           <UserCard
             float
-            header='https://i.imgur.com/w5tX1Pn.jpg'
-            avatar='https://i.imgur.com/uDYejhJ.jpg'
-            name='Justin Case'
-            positionName='Software Developer'
+            header= { 'https://i.imgur.com/w5tX1Pn.jpg' }
+            avatar= { this.state.avatarUrl === "" ? 'https://i.imgur.com/uDYejhJ.jpg' : this.state.avatarUrl }
+            name= { this.state.name === "" ? 'Justin Case' : this.state.name }
+            positionName= { this.state.bio === "" ? 'Software Developer' : this.state.bio }
             stats={[
               {
-                name: 'followers',
-                value: 21
+                name: 'Repository',
+                value: (this.state.publicRepos === "" ? 0 : this.state.publicRepos)
               },
               {
-                name: 'following',
-                value: 37
+                name: 'Followers',
+                value: (this.state.followers === "" ? 0 : this.state.followers)
               },
               {
-                name: 'posts',
-                value: 117
+                name: 'Following',
+                value: (this.state.following === "" ? 0 : this.state.following)
               }
             ]}
           />
